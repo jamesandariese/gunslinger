@@ -207,12 +207,11 @@ type oauthCode struct {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	config.RedirectURL = strings.TrimRight(r.URL.String(), "/") + "/oauth2callback"
 	ctx = appengine.NewContext(r)
 	randomString := generateWebhookValue()
 
 	dsMustPut("OAuthCode", randomString, &oauthCode{"filler"})
-	url := config.AuthCodeURL(randomString, oauth2.AccessTypeOffline)
+	url := config.AuthCodeURL(randomString, oauth2.AccessTypeOffline, oauth2.ApprovalForce)
 
 	http.Redirect(w, r, url, http.StatusFound)
 }
