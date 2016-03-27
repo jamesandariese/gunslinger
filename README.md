@@ -2,7 +2,7 @@
 
 Shoot mail into gmail directly from a forward in [Mailgun][mailgun].
 
-# Why?
+## Why?
 
 My initial application was [`gunsafe`][gunsafe]([github][github-gs]).  This works
 well but I wanted another option to get mail into Gmail rather than self-host the
@@ -18,7 +18,7 @@ message, and save it in Maildir.  Since I've had my email address for nearly 15 
 now, I get a lot of spam so storage on a VPS is annoyingly constrained by this.  I
 also don't like deleting things.  Google has a few extra hard drives for me.
 
-# How?
+## How?
 
 Rather than use a disk as a proxy like `gunsafe`, `gunslinger` uses the
 [Gmail Import API][giapi] to receive the MIME body of a message from Mailgun
@@ -43,7 +43,7 @@ There's no explicit limit to the number of accounts you can use a single appspot
 hosted app with but I expect that due to the open source nature of this, it will
 likely be one or two (maybe a family?).
 
-# Installation
+## Setup
 
 In the [GCP admin site][gcpconsole], create a new project.
 Remember the application ID and replace all the references to `your-application-id`
